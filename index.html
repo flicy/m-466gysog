@@ -8,7 +8,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141310" media="(prefers-color-scheme: dark)">
-<title>今日工作日历 · 10月12日 周一</title>
+<title>今日工作日历 · 10月13日 周二</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -30,132 +30,202 @@
   }
 }
 html{-webkit-text-size-adjust:100%}
-body{
-  margin:0; background:var(--paper); color:var(--ink-2);
-  font-family:var(--sans); font-size:15.5px; line-height:1.7;
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-  overflow-wrap:anywhere;
-}
-.wrap{
-  max-width:560px; margin:0 auto;
-  padding-top:calc(env(safe-area-inset-top) + 30px);
+body{margin:0;background:var(--paper);color:var(--ink-2);
+  font-family:var(--sans);font-size:15.5px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-wrap:anywhere}
+.wrap{max-width:560px;margin:0 auto;
+  padding-top:calc(env(safe-area-inset-top) + 26px);
   padding-bottom:calc(env(safe-area-inset-bottom) + 44px);
   padding-left:calc(env(safe-area-inset-left) + 20px);
-  padding-right:calc(env(safe-area-inset-right) + 20px);
-}
-a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-wash)}
-a:active{color:var(--accent); border-bottom-color:var(--line-strong)}
+  padding-right:calc(env(safe-area-inset-right) + 20px)}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-wash)}
+a:active{border-bottom-color:var(--line-strong)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;
+  background:var(--sunken);padding:1px 5px;border-radius:5px}
 
 /* masthead */
-.eyebrow{font-size:12px; font-weight:600; letter-spacing:.16em; color:var(--ink-2b)}
-.mast{font-family:var(--serif); font-weight:600; color:var(--ink);
-  font-size:38px; line-height:1.18; letter-spacing:.02em; margin:8px 0 0}
-.mast .wk{font-size:19px; color:var(--ink-2); margin-left:10px}
-.headline{font-family:var(--serif); font-size:17.5px; line-height:1.8;
-  color:var(--ink-2); margin:16px 0 0}
-.prog{display:flex; align-items:center; gap:12px; margin-top:20px}
-.prog .bar{flex:1; height:3px; background:var(--line-strong); border-radius:3px; overflow:hidden}
-.prog .bar span{display:block; height:100%; width:0; background:var(--accent); border-radius:3px;
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;color:var(--ink-2b)}
+.mast{font-family:var(--serif);font-weight:600;color:var(--ink);
+  font-size:38px;line-height:1.18;letter-spacing:.02em;margin:8px 0 0}
+.mast .wk{font-size:19px;color:var(--ink-2);margin-left:10px}
+
+/* tabs */
+.tabbar{position:sticky;top:0;z-index:20;display:flex;gap:6px;margin:20px -4px 0;
+  padding:6px 4px;background:var(--paper);
+  border-bottom:1px solid var(--line-strong)}
+.tab{flex:1;min-height:44px;appearance:none;border:1px solid transparent;border-radius:10px;
+  background:transparent;color:var(--ink-2b);font-family:inherit;font-size:14.5px;font-weight:600;
+  letter-spacing:.02em;cursor:pointer;transition:background .16s ease,color .16s ease}
+.tab:active{background:var(--sunken)}
+.tab.active{color:var(--accent);background:var(--accent-wash)}
+.view{display:none}
+.view.is-active{display:block;scroll-margin-top:64px}
+.view.enter{animation:rise .32s cubic-bezier(.2,.7,.2,1)}
+
+/* daily */
+.headline{font-family:var(--serif);font-size:17.5px;line-height:1.8;color:var(--ink-2);margin:18px 0 0}
+.prog{display:flex;align-items:center;gap:12px;margin-top:20px}
+.prog .bar{flex:1;height:3px;background:var(--line-strong);border-radius:3px;overflow:hidden}
+.prog .bar span{display:block;height:100%;width:0;background:var(--accent);border-radius:3px;
   transition:width .35s cubic-bezier(.2,.7,.2,1)}
-.prog .lbl{font-size:12.5px; letter-spacing:.03em; color:var(--ink-2b);
-  font-variant-numeric:tabular-nums; white-space:nowrap}
-
-/* sections · 台账行原语 */
-section{margin-top:46px}
-.sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-  padding-bottom:10px; border-bottom:1px solid var(--line-strong)}
-.sec-head h2{margin:0; font-size:16.5px; font-weight:600; color:var(--ink); letter-spacing:.01em}
-.sec-head .n{font-size:12px; color:var(--ink-2b); font-variant-numeric:tabular-nums; white-space:nowrap}
-
-.row{display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start;
-  padding:14px 0; border-bottom:1px solid var(--line); min-height:44px}
+.prog .lbl{font-size:12.5px;letter-spacing:.03em;color:var(--ink-2b);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+section.blk{margin-top:44px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding-bottom:10px;border-bottom:1px solid var(--line-strong)}
+.sec-head h2{margin:0;font-size:16.5px;font-weight:600;color:var(--ink);letter-spacing:.01em}
+.sec-head .n{font-size:12px;color:var(--ink-2b);font-variant-numeric:tabular-nums;white-space:nowrap}
+.row{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:14px 0;border-bottom:1px solid var(--line);min-height:44px}
 .row:last-child{border-bottom:none}
 .row.noq{grid-template-columns:1fr}
-.meta{font-size:13px; color:var(--ink-2b); font-variant-numeric:tabular-nums;
-  white-space:nowrap; padding-top:1px}
-.txt{font-size:15px; line-height:1.65; color:var(--ink-2)}
-.top{display:block; font-weight:600; font-size:15.5px; color:var(--ink); line-height:1.6}
-.desc{font-size:13.5px; line-height:1.62; color:var(--ink-2b); margin-top:4px}
-
-/* tasks */
+.meta{font-size:13px;color:var(--ink-2b);font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:1px}
+.txt{font-size:15px;line-height:1.65;color:var(--ink-2)}
+.top{display:block;font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.6}
+.desc{font-size:13.5px;line-height:1.62;color:var(--ink-2b);margin-top:4px}
+.goal{margin-top:6px;font-size:13.5px;line-height:1.6;color:var(--ink-2)}
+.gk{color:var(--accent);font-weight:600;font-size:12px;letter-spacing:.04em;margin-right:6px}
+.meta.due{color:var(--danger);font-weight:600}
+.fire{font-size:11px;margin-right:4px;vertical-align:1px}
 .tasks{border-top:1px solid var(--line)}
-.task{display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start;
-  padding:15px 0; border-bottom:1px solid var(--line); min-height:44px;
-  cursor:pointer; user-select:none; transition:opacity .15s ease}
-.task:active{opacity:.6}
-.tasks .task:last-child{border-bottom:none}
-.chk{width:22px; height:22px; margin-top:2px; flex:none; border-radius:7px;
-  border:1.5px solid var(--line-strong); background:var(--surface);
-  display:flex; align-items:center; justify-content:center;
-  transition:background .16s ease, border-color .16s ease}
-.chk::after{content:""; width:11px; height:5.5px; margin-top:-2px;
-  border-left:2px solid #fff; border-bottom:2px solid #fff;
-  transform:rotate(-45deg) scale(.3); opacity:0;
-  transition:opacity .16s ease, transform .16s ease}
-.task.done .chk{background:var(--accent); border-color:var(--accent)}
-.task.done .chk::after{opacity:1; transform:rotate(-45deg) scale(1)}
-.task.done .txt{color:var(--ink-4); text-decoration:line-through;
-  text-decoration-color:var(--line-strong)}
-
-/* frozen deadlines */
-.meta.due{color:var(--danger); font-weight:600}
-.fire{font-size:11px; margin-right:4px; vertical-align:1px}
-
-/* calendar */
 .cal-sub{margin-top:16px}
-.cal-sub:first-of-type{margin-top:0}
-.cal-sub h3{margin:0 0 2px; font-size:12px; font-weight:600; letter-spacing:.1em;
-  color:var(--ink-2b)}
-.note{padding:11px 0; border-bottom:1px solid var(--line); font-size:13.5px;
-  line-height:1.62; color:var(--ink-2b)}
+.cal-sub h3{margin:0 0 2px;font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-2b)}
+.note{padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.62;color:var(--ink-2b)}
 .cal-sub .note:last-child{border-bottom:none}
 .note.cal-warn{color:var(--warn)}
+.empty-state{border:1px dashed var(--line-strong);border-radius:12px;padding:18px 16px;
+  margin-top:16px;color:var(--ink-2b);font-size:14px;line-height:1.75}
+.empty-state b{display:block;color:var(--ink);font-size:14.5px;margin-bottom:5px}
+
+/* checkable rows (shared 日程 + 复盘) */
+.tick{cursor:pointer;user-select:none}
+.tick:active{opacity:.6}
+.chk{width:22px;height:22px;margin-top:2px;flex:0 0 auto;border-radius:7px;
+  border:1.5px solid var(--line-strong);background:var(--surface);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .16s ease,border-color .16s ease}
+.chk::after{content:"";width:11px;height:5.5px;margin-top:-2px;
+  border-left:2px solid #fff;border-bottom:2px solid #fff;
+  transform:rotate(-45deg) scale(.3);opacity:0;transition:opacity .16s ease,transform .16s ease}
+.tick.done .chk{background:var(--accent);border-color:var(--accent)}
+.tick.done .chk::after{opacity:1;transform:rotate(-45deg) scale(1)}
+.task{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:15px 0;border-bottom:1px solid var(--line);min-height:44px}
+.tasks .task:last-child{border-bottom:none}
+.task.done .txt{color:var(--ink-4);text-decoration:line-through;text-decoration-color:var(--line-strong)}
+
+/* reflect cards */
+.rf-card{border:1px solid var(--line);border-radius:14px;padding:16px 16px 6px;margin-top:16px;background:var(--surface)}
+.rf-card:first-of-type{margin-top:16px}
+.rf-cardhead{padding-bottom:12px;border-bottom:1px solid var(--line-strong)}
+.rf-date{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--ink);letter-spacing:.02em}
+.rf-date span{font-size:12.5px;color:var(--ink-2b);margin-left:8px;font-family:var(--sans);
+  font-weight:500;letter-spacing:.04em}
+.rf-headline{margin:8px 0 0;font-size:13.8px;line-height:1.78;color:var(--ink-2)}
+.rf-sec{border-top:1px solid var(--line);padding:13px 0}
+.rf-cardhead + .rf-sec{border-top:none}
+.rf-sec>b{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--ink-2b);margin-bottom:9px}
+.rf-line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;padding:7px 0;
+  border-top:1px dashed var(--line)}
+.rf-line:first-of-type{border-top:0}
+.rf-line .l{font-weight:600;font-size:13.8px;color:var(--ink)}
+.rf-line .s{font-size:11.5px;color:var(--ink-2b);white-space:nowrap;text-align:right;padding-top:2px}
+.rf-line .n{grid-column:1/-1;color:var(--ink-2b);font-size:13.2px;line-height:1.72}
+.rf-line .fx{grid-column:1/-1;color:var(--accent);font-size:12.8px;line-height:1.72;margin-top:3px}
+.rf-flag{background:var(--accent-wash);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;
+  padding:14px 16px;margin:14px 0}
+.rf-flag>b{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--accent);margin-bottom:9px}
+.rf-flag .fi{padding:8px 0;border-top:1px solid var(--line)}
+.rf-flag .fi:first-of-type{border-top:0;padding-top:2px}
+.rf-flag .fi b{font-size:13.8px;font-weight:600;color:var(--ink)}
+.rf-flag .fi .d{color:var(--ink-2);font-size:13px;margin-top:3px;line-height:1.72}
+.rf-flag .fi .fx{color:var(--accent);font-size:12.8px;margin-top:4px;line-height:1.72}
+.rf-sec .fi{padding:8px 0;border-top:1px solid var(--line)}
+.rf-sec .fi:first-of-type{border-top:0;padding-top:2px}
+.rf-sec .fi b{font-size:13.8px;font-weight:600;color:var(--ink)}
+.rf-sec .fi .d{color:var(--ink-2b);font-size:13.2px;margin-top:3px;line-height:1.72}
+.rf-sec .fi .fx{color:var(--ink-2b);font-size:12.8px;margin-top:4px;line-height:1.72}
+.rf-todo{display:flex;gap:12px;align-items:flex-start;padding:12px 0;
+  border-top:1px dashed var(--line);min-height:44px}
+.rf-todo:first-of-type{border-top:0}
+.rf-todo .chk{margin-top:2px}
+.rf-todo .tx{flex:1 1 auto;font-size:14px;line-height:1.66;color:var(--ink-2)}
+.rf-todo .rmeta{flex:0 0 auto;color:var(--ink-2b);font-size:11.5px;white-space:nowrap;padding-top:3px}
+.rf-todo.done .tx{color:var(--ink-4);text-decoration:line-through;text-decoration-color:var(--line-strong)}
+.rf-ask{list-style:none;margin:2px 0 0;padding:0;counter-reset:rfq}
+.rf-ask li{counter-increment:rfq;position:relative;padding:7px 0 7px 28px;
+  font-size:13.8px;line-height:1.78;color:var(--ink)}
+.rf-ask li::before{content:counter(rfq);position:absolute;left:0;top:8px;width:19px;height:19px;
+  border-radius:50%;background:var(--accent);color:#fff;font:600 11px/19px var(--sans);text-align:center}
+.rf-feel{font-size:14px;line-height:1.85;color:var(--ink-2)}
+.rf-kv{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:5px 0;font-size:13.4px;line-height:1.72}
+.rf-kv b{font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--ink-2b);padding-top:3px}
+.rf-note{color:var(--ink-2b);font-size:13px;line-height:1.75;padding:6px 0 0}
 
 /* footer */
-.foot{margin-top:54px; padding-top:18px; border-top:1px solid var(--line);
-  font-size:12px; letter-spacing:.02em; color:var(--ink-2b);
-  display:flex; flex-wrap:wrap; gap:6px}
+.foot{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:12px;letter-spacing:.02em;color:var(--ink-2b);display:flex;flex-wrap:wrap;gap:6px}
 
 @media (prefers-reduced-motion:no-preference){
-  .anim{opacity:0; animation:rise .5s cubic-bezier(.2,.7,.2,1) forwards}
+  .anim{opacity:0;animation:rise .5s cubic-bezier(.2,.7,.2,1) forwards}
 }
-@keyframes rise{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="wrap"><div class="anim" style="animation-delay:.00s"><div class="eyebrow">今日工作日历</div><h1 class="mast">10月12日<span class="wk">周一</span></h1><p class="headline">周会 + 发布前最后一个完整准备日：09:00 ProvenMart 周会，会前先补马丁结论、回张建朋；白天导出 00 期音频/逐字稿并拍三件板，两份调研文档到期发出；昨晚 Growthify 物料 v1.0 已出，等你过目 + 动手建活动行（周日上线）。</p><div class="prog"><span class="lbl" id="proglbl">0 / 5</span><span class="bar"><span id="progbar"></span></span></div></div><section class="anim" style="animation-delay:.06s"><div class="sec-head"><h2>今天要做的</h2><span class="n">5 项 · 已完成 0</span></div><div class="tasks"><div class="task" role="checkbox" tabindex="0" aria-checked="false" data-id="6c301cac3b49"><span class="chk" aria-hidden="true"></span><span class="txt">00 期播客重新定档并开工：先跟 Ariel 对一句新发布时间，上午导出音频+逐字稿 → 粗剪 → shownotes/标题</span></div><div class="task" role="checkbox" tabindex="0" aria-checked="false" data-id="e8b14e70e9ac"><span class="chk" aria-hidden="true"></span><span class="txt">Growthify 补承诺：动手建活动行链接 + 催马丁题目 → 升 Brief v1.0 + 扩散发布（10/17 硬节点）</span></div><div class="task" role="checkbox" tabindex="0" aria-checked="false" data-id="5b7635cf4374"><span class="chk" aria-hidden="true"></span><span class="txt">10:00 ProvenMart 每周同步：把 42 减半口径（第 10 天）+ 张建朋 3 问当面收掉，会后落文字</span></div><div class="task" role="checkbox" tabindex="0" aria-checked="false" data-id="08b5991f51ce"><span class="chk" aria-hidden="true"></span><span class="txt">财务收尾：切支付宝 12225 锁屏读数 + 统一汇率 + 把现金流/保费/目标/承受度给 Codex 定稿方案 v0.1</span></div><div class="task" role="checkbox" tabindex="0" aria-checked="false" data-id="11a69e7c1caf"><span class="chk" aria-hidden="true"></span><span class="txt">系统夜班修好：点头 pmset 定时唤醒（一条 sudo）+ 顺手把两份调研文档发出（已拖 3 天）</span></div></div></section><section class="anim" style="animation-delay:.12s"><div class="sec-head"><h2>今天就照这个去说</h2><span class="n">8 条待收口</span></div><div class="row noq"><div class="txt"><span class="top">42 减半口径 + $13,475（第 10 天）</span><div class="desc">今天 10:00 每周同步当面收；总量砍不砍、调不调、张建朋 3 问，说完落成文字进客户群</div></div></div><div class="row noq"><div class="txt"><span class="top">00 期播客重新定档（周日 20:00 节点已空过）</span><div class="desc">先跟 Ariel 对一句新发布时间；剪辑/渠道/标题三拍板 + 导出仍是第一块多米诺</div></div></div><div class="row noq"><div class="txt"><span class="top">Growthify 报名口径与入口待你拍板</span><div class="desc">199 元/20 公开席/约 30 人是建议值；活动行提交卡 Tabbit 待你重启；马丁题目仍挂——10/16 周会是最后的对齐窗口</div></div></div><div class="row noq"><div class="txt"><span class="top">发布端责任链（柚子 or 冯定远 + 审核甩锅）</span><div class="desc">雪舞 9/28 问对接人到现在；冯定远把文案审核推给雪舞——两件事一起定，发布链才算通</div></div></div><div class="row noq"><div class="txt"><span class="top">ProvenMart 10 月人力补位</span><div class="desc">哪吒表示精力不够，10 月是否引入同类型人选——今天 10:00 同步里一起定</div></div></div><div class="row noq"><div class="txt"><span class="top">入境游朋友介绍给旅伴（9/27 承诺）</span><div class="desc">成都青旅项目旅伴等你拉群对接；微信拉群即闭环，别过站就忘</div></div></div><div class="row noq"><div class="txt"><span class="top">曹老板 GEO 三件套已拖近三周</span><div class="desc">报价与渠道价都在手上，发出就闭环；本周发邮件</div></div></div><div class="row noq"><div class="txt"><span class="top">Promark 融资与 10/17 活动一串活等你拍优先级</span><div class="desc">真格投后、活动卡片、走账公司注册、广宝 teaser；筹备 v0.1 已建，从它开始过</div></div></div></section><section class="anim" style="animation-delay:.18s"><div class="sec-head"><h2>硬截止</h2><span class="n">7 个节点</span></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/13</div><div class="txt">越南课课件初稿交樊亮翻译（PPT 英文+越南语，10/15 前定稿发学校）<div class="desc">大纲 v0.2 已交付（Codex 做个人网站，35 页）；待樊亮回：学员人数/机房网络、授课语言、GitHub 门槛、答疑日期避开 10/23-25</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/14</div><div class="txt">上午把越南课 PPT 初稿发樊亮要反馈 + 催他的课件<div class="desc">硬截止前的回收点：要他明确回课时数/授课语言/机房网络，同时催他交自己的那部分课件</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/15</div><div class="txt">马消竞聘材料截止<div class="desc">材料本周排上；汇丰两只基金下单一起补（现金 14 万在手）</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/15</div><div class="txt">越南课定稿发学校<div class="desc">最终定稿；与 10/16 Growthify 周会、10/17 北京场抢同一周尾，别再往后拖</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/16</div><div class="txt"><a href="https://vc.feishu.cn/j/995360446" target="_blank" rel="noopener">Growthify 周会 10:00-10:30（Jessie婷 组织）</a><div class="desc">北京场 10/17 前最后一次例会：报名入口/口径、马丁题目、扩散发布进度在这里对齐</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/17</div><div class="txt"><a href="https://my.feishu.cn/docx/PhaVd7EzroLyy0x9JlMco3xvnMe" target="_blank" rel="noopener">Growthify 北京场 14:00 开始（13:30 签到，17:30 结束）</a><div class="desc">物料已收口：v5 蓝紫主海报 A/B 定稿、展示文档清理为仅 4 张 PNG、全套文字物料 v1.0 在案；当前卡点只剩活动行提交（Tabbit 待你重启）+ 报名口径拍板 + 马丁题目；你主持兼主咖</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/23</div><div class="txt"><a href="https://agentuniverse.feishu.cn/share/base/form/shrcnk0oxOWSpfmszsVWNuU9dGh" target="_blank" rel="noopener">观猹大会（杭州龙坞）+ 与方昱见面</a><div class="desc">你计划 10/23-25 去龙坞；联名宣发表单 10/9 20:00 已过截止，填/不填结论待给</div></div></div></section><section class="anim" style="animation-delay:.24s"><div class="sec-head"><h2>今晚与明天</h2></div><div class="cal-sub"><h3>今天</h3><div class="row"><div class="meta">08:00/08:30</div><div class="txt">🎧 磨耳朵 → 🗣 通勤开口说</div></div><div class="row"><div class="meta">10:00-11:00</div><div class="txt">🤝 ProvenMart 每周同步——42 减半口径 + 张建朋 3 问最近的当面窗口</div></div><div class="row"><div class="meta">21:15-23:30</div><div class="txt">📚 AI PM课程 → 22:30 雅思专项 → 23:15 口语15min</div></div><div class="note cal-apple">全天 · 无硬日程（周一减法检查照例自做）</div><div class="note cal-warn">白天窗口：00 期重新定档跟 Ariel 对齐 + Growthify 活动行补承诺（对李寒钥已过期）</div></div><div class="cal-sub"><h3>明天 · 周二 · 越南课初稿节点</h3><div class="row"><div class="meta">飞书</div><div class="txt"><a href="https://my.feishu.cn/docx/DKkXdKHG5oPxZ3xdXhKcWI1Bnsf" target="_blank" rel="noopener">🎧 磨耳朵 08:00 + 🗣 通勤开口说 08:30；早会工作对齐材料已备好（Codex 03:33 落稿）</a></div></div><div class="row"><div class="meta">台账</div><div class="txt">越南课课件初稿交樊亮翻译（PPT 英文+越南语，10/15 前定稿）</div></div><div class="row"><div class="meta">飞书</div><div class="txt"><a href="https://vc.feishu.cn/j/961839422" target="_blank" rel="noopener">晚间课程三连 21:15 AI PM课 / 22:30 雅思专项 / 23:15 口语15min</a></div></div></div></section><div class="foot anim" style="animation-delay:.34s"><span>更新于 2026-10-12 08:12</span><span>·</span><span>私人看板，请勿转发</span></div></div>
-<script type="application/json" id="board-data">{"board_date": "2026-10-12", "updated": "2026-10-12 08:12", "headline": "周会 + 发布前最后一个完整准备日：09:00 ProvenMart 周会，会前先补马丁结论、回张建朋；白天导出 00 期音频/逐字稿并拍三件板，两份调研文档到期发出；昨晚 Growthify 物料 v1.0 已出，等你过目 + 动手建活动行（周日上线）。", "priorities": [{"text": "00 期播客重新定档并开工：先跟 Ariel 对一句新发布时间，上午导出音频+逐字稿 → 粗剪 → shownotes/标题", "done": false, "link": "/Users/chrisc/cola/outputs/Chris-Ariel联合播客/2026-10-11-00期发布计划.md"}, {"text": "Growthify 补承诺：动手建活动行链接 + 催马丁题目 → 升 Brief v1.0 + 扩散发布（10/17 硬节点）", "done": false, "link": "https://my.feishu.cn/docx/PhaVd7EzroLyy0x9JlMco3xvnMe"}, {"text": "10:00 ProvenMart 每周同步：把 42 减半口径（第 10 天）+ 张建朋 3 问当面收掉，会后落文字", "done": false, "link": "/Users/chrisc/cola/outputs/glowback-pm/pm-ledger.md"}, {"text": "财务收尾：切支付宝 12225 锁屏读数 + 统一汇率 + 把现金流/保费/目标/承受度给 Codex 定稿方案 v0.1", "done": false, "link": "https://my.feishu.cn/docx/NhZLdc08hoxtprx6UlNc5pFLnwy"}, {"text": "系统夜班修好：点头 pmset 定时唤醒（一条 sudo）+ 顺手把两份调研文档发出（已拖 3 天）", "done": false, "link": "/Users/chrisc/Documents/agent-workbench/registry/events/2026-10-09-深夜批次-00期播客与十月计划.md"}], "talks": [{"text": "42 减半口径 + $13,475（第 10 天）", "desc": "今天 10:00 每周同步当面收；总量砍不砍、调不调、张建朋 3 问，说完落成文字进客户群"}, {"text": "00 期播客重新定档（周日 20:00 节点已空过）", "desc": "先跟 Ariel 对一句新发布时间；剪辑/渠道/标题三拍板 + 导出仍是第一块多米诺"}, {"text": "Growthify 报名口径与入口待你拍板", "desc": "199 元/20 公开席/约 30 人是建议值；活动行提交卡 Tabbit 待你重启；马丁题目仍挂——10/16 周会是最后的对齐窗口"}, {"text": "发布端责任链（柚子 or 冯定远 + 审核甩锅）", "desc": "雪舞 9/28 问对接人到现在；冯定远把文案审核推给雪舞——两件事一起定，发布链才算通"}, {"text": "ProvenMart 10 月人力补位", "desc": "哪吒表示精力不够，10 月是否引入同类型人选——今天 10:00 同步里一起定"}, {"text": "入境游朋友介绍给旅伴（9/27 承诺）", "desc": "成都青旅项目旅伴等你拉群对接；微信拉群即闭环，别过站就忘"}, {"text": "曹老板 GEO 三件套已拖近三周", "desc": "报价与渠道价都在手上，发出就闭环；本周发邮件"}, {"text": "Promark 融资与 10/17 活动一串活等你拍优先级", "desc": "真格投后、活动卡片、走账公司注册、广宝 teaser；筹备 v0.1 已建，从它开始过"}], "frozen": [{"date": "10/13", "text": "越南课课件初稿交樊亮翻译（PPT 英文+越南语，10/15 前定稿发学校）", "note": "大纲 v0.2 已交付（Codex 做个人网站，35 页）；待樊亮回：学员人数/机房网络、授课语言、GitHub 门槛、答疑日期避开 10/23-25", "link": "/Users/chrisc/cola/outputs/ai课程出海-越南/2026-10-09-课件大纲v0.2-Codex做个人网站-英文本.md"}, {"date": "10/15", "text": "马消竞聘材料截止", "note": "材料本周排上；汇丰两只基金下单一起补（现金 14 万在手）", "link": "/Users/chrisc/Documents/agent-workbench/wealth/Q3-资产配置大计划-拆解.md"}, {"date": "10/16", "text": "Growthify 周会 10:00-10:30（Jessie婷 组织）", "note": "北京场 10/17 前最后一次例会：报名入口/口径、马丁题目、扩散发布进度在这里对齐", "link": "https://vc.feishu.cn/j/995360446"}, {"date": "10/17", "text": "Growthify 北京场 14:00 开始（13:30 签到，17:30 结束）", "note": "物料已收口：v5 蓝紫主海报 A/B 定稿、展示文档清理为仅 4 张 PNG、全套文字物料 v1.0 在案；当前卡点只剩活动行提交（Tabbit 待你重启）+ 报名口径拍板 + 马丁题目；你主持兼主咖", "link": "https://my.feishu.cn/docx/PhaVd7EzroLyy0x9JlMco3xvnMe"}, {"date": "10/14", "text": "上午把越南课 PPT 初稿发樊亮要反馈 + 催他的课件", "note": "硬截止前的回收点：要他明确回课时数/授课语言/机房网络，同时催他交自己的那部分课件"}, {"date": "10/15", "text": "越南课定稿发学校", "note": "最终定稿；与 10/16 Growthify 周会、10/17 北京场抢同一周尾，别再往后拖"}, {"date": "10/23", "text": "观猹大会（杭州龙坞）+ 与方昱见面", "note": "你计划 10/23-25 去龙坞；联名宣发表单 10/9 20:00 已过截止，填/不填结论待给", "link": "https://agentuniverse.feishu.cn/share/base/form/shrcnk0oxOWSpfmszsVWNuU9dGh"}], "today_calendar": {"feishu": [{"time": "08:00/08:30", "text": "🎧 磨耳朵 → 🗣 通勤开口说"}, {"time": "10:00-11:00", "text": "🤝 ProvenMart 每周同步——42 减半口径 + 张建朋 3 问最近的当面窗口"}, {"time": "21:15-23:30", "text": "📚 AI PM课程 → 22:30 雅思专项 → 23:15 口语15min"}], "apple": [{"time": "全天", "text": "无硬日程（周一减法检查照例自做）"}], "wechat": ["白天窗口：00 期重新定档跟 Ariel 对齐 + Growthify 活动行补承诺（对李寒钥已过期）"]}, "tomorrow_date": "2026-10-13", "overnight": [], "source_status": {"wechat": "warn", "feishu": "ok", "codex": "ok", "apple": "ok", "getnote": "warn", "fs": "ok"}}</script>
+<div class="wrap"><div class="eyebrow">今日工作日历</div><h1 class="mast">10月13日<span class="wk">周二</span></h1><div class="tabbar" role="tablist" aria-label="视图切换"><button class="tab active" role="tab" aria-selected="true" data-view="daily">日程</button><button class="tab" role="tab" aria-selected="false" data-view="reflect">复盘</button></div><section class="view is-active" id="view-daily" role="tabpanel" aria-label="日程"><div class="anim" style="animation-delay:.00s"><p class="headline">今天整天没有外部会——第一格给 Glowback 20 条（10/14 交 105 条、现约 58 条），然后是越南课初稿 + 42 口径表框架；唯一要先打出去的电话是冯定远那 52 条审核失败明细。</p><div class="prog"><span class="lbl" id="proglbl">0 / 7</span><span class="bar"><span id="progbar"></span></span></div></div><section class="blk anim" style="animation-delay:.06s"><div class="sec-head"><h2>今天要做的</h2><span class="n">7 项 · 已完成 0</span></div><div class="tasks"><div class="task tick" role="checkbox" tabindex="0" aria-checked="false" data-store="daily" data-id="f393f0a1e0e9"><span class="chk" aria-hidden="true"></span><span class="txt">Glowback 20 条：9:00 前把今天的 20 条清单定死发给内容组，当天盯交回</span></div><div class="task tick" role="checkbox" tabindex="0" aria-checked="false" data-store="daily" data-id="ae3fc4bab679"><span class="chk" aria-hidden="true"></span><span class="txt">找冯定远要 52 条审核失败的全量明细 + 重发时点（排期表仍欠）</span></div><div class="task tick" role="checkbox" tabindex="0" aria-checked="false" data-store="daily" data-id="16e04aa1ebb5"><span class="chk" aria-hidden="true"></span><span class="txt">越南课 PPT 初稿今天做完，并给樊亮一个课件交稿准点</span></div><div class="task tick" role="checkbox" tabindex="0" aria-checked="false" data-store="daily" data-id="ad444c855c4e"><span class="chk" aria-hidden="true"></span><span class="txt">V2fun：与方昱确认 5 类 demo 分工 + 列出数据线要的字段，今天先交 2–3 条 demo</span></div><div class="task tick" role="checkbox" tabindex="0" aria-checked="false" data-store="daily" data-id="bdaf0ba126cc"><span class="chk" aria-hidden="true"></span><span class="txt">看完《42 交办清单》→ 当场起草《数据回传字段口径表》框架（10/16 定版）</span></div><div class="task tick" role="checkbox" tabindex="0" aria-checked="false" data-store="daily" data-id="bf65000b7cf8"><span class="chk" aria-hidden="true"></span><span class="txt">Growthify 10/17：定死定向邀约名单，发出第一批邀请（含李寒钥的投资人）</span></div><div class="task tick" role="checkbox" tabindex="0" aria-checked="false" data-store="daily" data-id="1bd3a5f9befb"><span class="chk" aria-hidden="true"></span><span class="txt">财务三输入一次补齐：126/163/QQ 授权码 ×3 + 币安 BTC 口径 + 方案 9 个黄底参数</span></div></div></section><section class="blk anim" style="animation-delay:.12s"><div class="sec-head"><h2>今天就照这个去说</h2><span class="n">5 条</span></div><div class="row noq"><div class="txt"><span class="top">冯定远（Glowback 发布端）</span><div class="desc">52 条审核失败的全量明细 + 排期表 + 重发哪天</div><div class="goal"><span class="gk">要拿到</span>拿到「重发时点」——14 号交付卡在发布端这一环</div></div></div><div class="row noq"><div class="txt"><span class="top">樊亮@京东云（越南课合作方）</span><div class="desc">课件交稿准点（给一个死的时间），顺带回他昨天的催问</div><div class="goal"><span class="gk">要拿到</span>让他的翻译排期有锚；10/15 定稿发学校</div></div></div><div class="row noq"><div class="txt"><span class="top">方昱（ProvenMart V2fun 内容负责人）</span><div class="desc">5 类 demo 分工 + 今天先交哪 2–3 条（3D 效果要调真）</div><div class="goal"><span class="gk">要拿到</span>确定今天交出去的 demo 清单，不用返工</div></div></div><div class="row noq"><div class="txt"><span class="top">李寒钥（10/17 活动伙伴）</span><div class="desc">定向邀约名单第一批 + 他那批投资人的邀请话术</div><div class="goal"><span class="gk">要拿到</span>今天把第一批邀请发出去，别再等</div></div></div><div class="row noq"><div class="txt"><span class="top">42（ProvenMart 主理人）</span><div class="desc">交办清单看完的确认 + V2fun 项目情况表（他说 12 号完成）</div><div class="goal"><span class="gk">要拿到</span>口径表框架按他的分工对齐，10/16 定版</div></div></div></section><section class="blk anim" style="animation-delay:.18s"><div class="sec-head"><h2>硬截止</h2><span class="n">10 个节点</span></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/14</div><div class="txt">Glowback 交 105 条（两周口径，从 10/1 起算）<div class="desc">现约 58 条、还差约 60，节奏一天 20 条；同日交付完即催进度款（只收到一半），收到才启动后续 105 条</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/14</div><div class="txt">上午把越南课 PPT 初稿发樊亮要反馈 + 催他的课件<div class="desc">要他明确回课时数/授课语言/机房网络，同时催他交自己那部分课件</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/15</div><div class="txt">越南课定稿发学校<div class="desc">最终定稿；与 Growthify 周会、10/17 北京场抢同一周尾，别再往后拖</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/15</div><div class="txt">马消竞聘材料截止<div class="desc">材料本周排上；汇丰两只基金下单一起补（现金 14 万在手）</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/16</div><div class="txt">《数据回传字段口径表》定版<div class="desc">42 交办清单今天看完起草框架，16 号定版；V2fun 与 Glowback 的数据线都等它</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/16</div><div class="txt"><a href="https://vc.feishu.cn/j/995360446" target="_blank" rel="noopener">Growthify 周会 10:00-10:30（Jessie婷 组织）</a><div class="desc">北京场 10/17 前最后一次例会：报名入口/口径、嘉宾名单、扩散发布进度在这里对齐</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/17</div><div class="txt"><a href="https://my.feishu.cn/docx/PhaVd7EzroLyy0x9JlMco3xvnMe" target="_blank" rel="noopener">Growthify 北京场 14:00 开始（13:30 签到，17:30 结束）</a><div class="desc">物料已收口；只剩定向邀约名单、报名口径、场地确认（韩重明）三件；你主持兼主咖</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/17</div><div class="txt">2026 微信小程序开发大赛：报名与作品提报截止<div class="desc">硬约束是小程序必须在此期间在微信公众平台正式上线且正常运行——遇己要么今天排进去，要么明确不推进</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/19</div><div class="txt"><a href="https://vc.feishu.cn/j/380977529" target="_blank" rel="noopener">ProvenMart 每周同步 10:00（42）</a><div class="desc">周一固定例会回到日历；会前材料 10/18 晚过一眼</div></div></div><div class="row"><div class="meta due"><span class="fire">🔴</span>10/23</div><div class="txt"><a href="https://agentuniverse.feishu.cn/share/base/form/shrcnk0oxOWSpfmszsVWNuU9dGh" target="_blank" rel="noopener">观猹大会（杭州龙坞）+ 与方昱见面</a><div class="desc">你计划 10/23-25 去龙坞；联名宣发表单 10/9 20:00 已过截止，填/不填结论待给</div></div></div></section><section class="blk anim" style="animation-delay:.24s"><div class="sec-head"><h2>今晚与明天</h2></div><div class="cal-sub"><h3>今天</h3><div class="row"><div class="meta">08:00 / 08:30</div><div class="txt">🎧 雅思·早起磨耳朵 Podcast → 🗣 雅思·通勤开口说</div></div><div class="row"><div class="meta">21:15 → 23:30</div><div class="txt">📚 AI PM课程 → 22:30 雅思·晚间专项 → 23:15 口语15min</div></div><div class="row"><div class="meta">全天</div><div class="txt">无外部会议（下一个是 10/16 10:00 Growthify 周会）</div></div><div class="note cal-apple">全天 · 无硬日程；下一条是 10/15 16:30 凝韵姐姐的小生活 直播</div><div class="note cal-warn">周历块 12:00 健身 · 普拉提小班（周一那节私教已改周三，今天这节是否照常待你确认）</div><div class="note cal-warn">下午 与 haoyun 见面（约 2 小时；攀岩已顺延，地点上午看天气定）</div><div class="note cal-warn">傍晚 顺路看 10/17 王府中心场地（韩重明）——10/14 前要给一句确认</div></div><div class="cal-sub"><h3>明天 · 周三 · Glowback 交付日 · 越南课初稿发樊亮 · 报名跟进</h3><div class="row"><div class="meta">飞书</div><div class="txt">🎧 磨耳朵 08:00 + 🗣 通勤开口说 08:30；雅思专项（写作）9:00-12:00 / 健身私教 12:00</div></div><div class="row"><div class="meta">台账</div><div class="txt">Glowback 105 条交付；交完即催 42 走进度款（甲方只付了一半）</div></div><div class="row"><div class="meta">台账</div><div class="txt">上午越南课 PPT 初稿发樊亮要反馈 + 催他的课件；下午给老师投保定稿节奏</div></div><div class="row"><div class="meta">活动</div><div class="txt"><a href="https://my.feishu.cn/docx/MKLWd7Oh4o3cP2x6ks7c5P9xnng" target="_blank" rel="noopener">Growthify 定向邀约第二批 + 报名跟进（¥199 × 20 席；人数不够今天就该放量）</a></div></div><div class="row"><div class="meta">活动</div><div class="txt">场地确认收口：韩重明（王府中心 8 层 805）当天安排一句微信确认</div></div><div class="row"><div class="meta">台账</div><div class="txt">V2fun 起正式给客户做 demo（5 类各 1 条先跑通）</div></div><div class="row"><div class="meta">台账</div><div class="txt">汇丰两只基金下单落位（现金 14 万，按补仓纪要对口径）</div></div><div class="row"><div class="meta">台账</div><div class="txt">播客 00 期三件（实名/标题/音频）19:30–21:00 一次定完</div></div></div></section></section><section class="view" id="view-reflect" role="tabpanel" aria-label="复盘"><div class="sec-head"><h2>每日复盘 · 监督版</h2></div><div class="empty-state"><b>此版本不含复盘内容</b>公开页只放日程与待办层；复盘正文（私人内容）只在本地版本（<code>python3 build.py --with-reflect</code>）里生成，未同步到这份页面。</div></section><div class="foot anim"><span>更新于 2026-10-13 08:00</span><span>·</span><span>私人看板，请勿转发</span></div></div>
+<script type="application/json" id="board-data">{"board_date": "2026-10-13", "updated": "2026-10-13 08:00", "headline": "今天整天没有外部会——第一格给 Glowback 20 条（10/14 交 105 条、现约 58 条），然后是越南课初稿 + 42 口径表框架；唯一要先打出去的电话是冯定远那 52 条审核失败明细。", "priorities": [{"text": "Glowback 20 条：9:00 前把今天的 20 条清单定死发给内容组，当天盯交回", "done": false, "link": "/Users/chrisc/cola/outputs/glowback-pm/pm-ledger.md"}, {"text": "找冯定远要 52 条审核失败的全量明细 + 重发时点（排期表仍欠）", "done": false, "link": "/Users/chrisc/cola/outputs/agent-daily/会议纪要/2026-10-12-ProvenMart每周同步-纪要.md"}, {"text": "越南课 PPT 初稿今天做完，并给樊亮一个课件交稿准点", "done": false, "link": "/Users/chrisc/cola/outputs/ai课程出海-越南/2026-10-09-课件大纲v0.2-Codex做个人网站-英文本.md"}, {"text": "V2fun：与方昱确认 5 类 demo 分工 + 列出数据线要的字段，今天先交 2–3 条 demo", "done": false, "link": "/Users/chrisc/cola/outputs/agent-daily/会议纪要/2026-10-12-ProvenMart每周同步-纪要.md"}, {"text": "看完《42 交办清单》→ 当场起草《数据回传字段口径表》框架（10/16 定版）", "done": false, "link": "/Users/chrisc/cola/outputs/glowback-pm/42交办清单/2026-10-13-42交办事项全清单.md"}, {"text": "Growthify 10/17：定死定向邀约名单，发出第一批邀请（含李寒钥的投资人）", "done": false, "link": "https://my.feishu.cn/docx/PhaVd7EzroLyy0x9JlMco3xvnMe"}, {"text": "财务三输入一次补齐：126/163/QQ 授权码 ×3 + 币安 BTC 口径 + 方案 9 个黄底参数", "done": false, "link": "https://my.feishu.cn/docx/NhZLdc08hoxtprx6UlNc5pFLnwy"}], "talks": [{"who": "冯定远（Glowback 发布端）", "what": "52 条审核失败的全量明细 + 排期表 + 重发哪天", "goal": "拿到「重发时点」——14 号交付卡在发布端这一环"}, {"who": "樊亮@京东云（越南课合作方）", "what": "课件交稿准点（给一个死的时间），顺带回他昨天的催问", "goal": "让他的翻译排期有锚；10/15 定稿发学校"}, {"who": "方昱（ProvenMart V2fun 内容负责人）", "what": "5 类 demo 分工 + 今天先交哪 2–3 条（3D 效果要调真）", "goal": "确定今天交出去的 demo 清单，不用返工"}, {"who": "李寒钥（10/17 活动伙伴）", "what": "定向邀约名单第一批 + 他那批投资人的邀请话术", "goal": "今天把第一批邀请发出去，别再等"}, {"who": "42（ProvenMart 主理人）", "what": "交办清单看完的确认 + V2fun 项目情况表（他说 12 号完成）", "goal": "口径表框架按他的分工对齐，10/16 定版"}], "frozen": [{"date": "10/14", "text": "Glowback 交 105 条（两周口径，从 10/1 起算）", "note": "现约 58 条、还差约 60，节奏一天 20 条；同日交付完即催进度款（只收到一半），收到才启动后续 105 条", "link": "/Users/chrisc/cola/outputs/glowback-pm/pm-ledger.md"}, {"date": "10/14", "text": "上午把越南课 PPT 初稿发樊亮要反馈 + 催他的课件", "note": "要他明确回课时数/授课语言/机房网络，同时催他交自己那部分课件", "link": "/Users/chrisc/cola/outputs/ai课程出海-越南/2026-10-09-课件大纲v0.2-Codex做个人网站-英文本.md"}, {"date": "10/15", "text": "越南课定稿发学校", "note": "最终定稿；与 Growthify 周会、10/17 北京场抢同一周尾，别再往后拖", "link": "/Users/chrisc/cola/outputs/ai课程出海-越南/2026-10-09-课件大纲v0.2-Codex做个人网站-英文本.md"}, {"date": "10/15", "text": "马消竞聘材料截止", "note": "材料本周排上；汇丰两只基金下单一起补（现金 14 万在手）", "link": "/Users/chrisc/Documents/agent-workbench/wealth/Q3-资产配置大计划-拆解.md"}, {"date": "10/16", "text": "《数据回传字段口径表》定版", "note": "42 交办清单今天看完起草框架，16 号定版；V2fun 与 Glowback 的数据线都等它", "link": "/Users/chrisc/cola/outputs/glowback-pm/42交办清单/2026-10-13-42交办事项全清单.md"}, {"date": "10/16", "text": "Growthify 周会 10:00-10:30（Jessie婷 组织）", "note": "北京场 10/17 前最后一次例会：报名入口/口径、嘉宾名单、扩散发布进度在这里对齐", "link": "https://vc.feishu.cn/j/995360446"}, {"date": "10/17", "text": "Growthify 北京场 14:00 开始（13:30 签到，17:30 结束）", "note": "物料已收口；只剩定向邀约名单、报名口径、场地确认（韩重明）三件；你主持兼主咖", "link": "https://my.feishu.cn/docx/PhaVd7EzroLyy0x9JlMco3xvnMe"}, {"date": "10/17", "text": "2026 微信小程序开发大赛：报名与作品提报截止", "note": "硬约束是小程序必须在此期间在微信公众平台正式上线且正常运行——遇己要么今天排进去，要么明确不推进", "link": "/Users/chrisc/cola/outputs/人生回忆录-SheNicest黑客松/2026微信小程序开发大赛-遇己小程序提报备忘录.md"}, {"date": "10/19", "text": "ProvenMart 每周同步 10:00（42）", "note": "周一固定例会回到日历；会前材料 10/18 晚过一眼", "link": "https://vc.feishu.cn/j/380977529"}, {"date": "10/23", "text": "观猹大会（杭州龙坞）+ 与方昱见面", "note": "你计划 10/23-25 去龙坞；联名宣发表单 10/9 20:00 已过截止，填/不填结论待给", "link": "https://agentuniverse.feishu.cn/share/base/form/shrcnk0oxOWSpfmszsVWNuU9dGh"}], "today_calendar": {"feishu": [{"time": "08:00 / 08:30", "text": "🎧 雅思·早起磨耳朵 Podcast → 🗣 雅思·通勤开口说"}, {"time": "21:15 → 23:30", "text": "📚 AI PM课程 → 22:30 雅思·晚间专项 → 23:15 口语15min"}, {"time": "全天", "text": "无外部会议（下一个是 10/16 10:00 Growthify 周会）"}], "apple": [{"time": "全天", "text": "无硬日程；下一条是 10/15 16:30 凝韵姐姐的小生活 直播"}], "wechat": ["周历块 12:00 健身 · 普拉提小班（周一那节私教已改周三，今天这节是否照常待你确认）", "下午 与 haoyun 见面（约 2 小时；攀岩已顺延，地点上午看天气定）", "傍晚 顺路看 10/17 王府中心场地（韩重明）——10/14 前要给一句确认"]}, "tomorrow_date": "2026-10-14", "overnight": [], "reflect": null, "source_status": {"wechat": "warn", "feishu": "ok", "codex": "ok", "apple": "ok", "getnote": "warn", "fs": "ok"}}</script>
 <script>
 (function(){
-  var KEY='mboard.done.v1';
+  var KEY='mboard.ticks.v1';
   var store={};
   try{ store=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ store={}; }
-  var tasks=Array.prototype.slice.call(document.querySelectorAll('.task'));
-  function setDone(el,d){ el.classList.toggle('done',d); el.setAttribute('aria-checked', d?'true':'false'); }
-  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(store)); }catch(e){} }
+  function keyOf(el){ return el.getAttribute('data-store')+':'+el.getAttribute('data-id'); }
+  function setDone(el,d){ el.classList.toggle('done',d); el.setAttribute('aria-checked',d?'true':'false'); }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(store)); }catch(e){} }
+  var ticks=Array.prototype.slice.call(document.querySelectorAll('.tick'));
   function updateProg(){
-    var total=tasks.length;
-    var done=document.querySelectorAll('.task.done').length;
-    var bar=document.getElementById('progbar');
-    var lbl=document.getElementById('proglbl');
+    var scope=Array.prototype.slice.call(document.querySelectorAll('.tick[data-store="daily"]'));
+    var total=scope.length, done=0;
+    scope.forEach(function(e){ if(e.classList.contains('done')) done++; });
+    var bar=document.getElementById('progbar'), lbl=document.getElementById('proglbl');
     if(bar) bar.style.width = total ? Math.round(done/total*100)+'%' : '0%';
     if(lbl) lbl.textContent = done+' / '+total;
   }
-  tasks.forEach(function(el){
-    var id=el.getAttribute('data-id');
-    if(store[id]) setDone(el,true);
+  ticks.forEach(function(el){
+    var k=keyOf(el);
+    if(store[k]) setDone(el,true);
     function toggle(){
       var d=!el.classList.contains('done');
       setDone(el,d);
-      if(d) store[id]=1; else delete store[id];
+      if(d) store[k]=1; else delete store[k];
       save(); updateProg();
     }
-    el.addEventListener('click', toggle);
-    el.addEventListener('keydown', function(ev){
+    el.addEventListener('click',toggle);
+    el.addEventListener('keydown',function(ev){
       if(ev.key===' '||ev.key==='Enter'){ ev.preventDefault(); toggle(); }
     });
   });
   updateProg();
+
+  /* 两档切换：点击后视口跟随 + 入场动画 + 激活态即时切换 */
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var views=Array.prototype.slice.call(document.querySelectorAll('.view'));
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var name=t.getAttribute('data-view');
+      tabs.forEach(function(x){
+        var on=x===t; x.classList.toggle('active',on); x.setAttribute('aria-selected',on?'true':'false');
+      });
+      views.forEach(function(v){
+        var on=v.id==='view-'+name;
+        v.classList.toggle('is-active',on);
+        if(on){ v.classList.remove('enter'); void v.offsetWidth; v.classList.add('enter'); }
+      });
+      var el=document.getElementById('view-'+name);
+      if(el && el.scrollIntoView) el.scrollIntoView({block:'start'});
+    });
+  });
 })();
 </script>
 </body>
